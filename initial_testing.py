@@ -35,6 +35,41 @@ def create_scale(root, type):
             scale += [[note, frequency]]
     return scale
 
+def create_custom_scale(root, semitones):
+    # Find root note index in master list
+    start = 0
+    for i in range(len(master)):
+        if master[i][0] == root:
+            start = i
+            break
+    # Create scale index from user input of semitones
+    semi_steps = [0]
+    for i in semitones:
+        semi_steps.append(int(i))
+
+    total = 0
+    scale_index = []
+    for step in semi_steps:
+        total = total + step
+        scale_index.append(total)
+    print (scale_index)
+
+    # Update scale index with root starting point
+    scale_index = [(x + start) for x in scale_index]
+    # Parse master list into desired scale
+    scale = []
+    for index in scale_index:
+        try:
+            scale += [master[index]]
+        except:
+            index = index - 12
+            note = master[index][0]
+            frequency = master[index][1] * 2
+            scale += [[note, frequency]]
+    return scale
+
+print (create_custom_scale('e', '1214121'))
+
 def create_note_lengths(bpm):
     half_note = 120000//bpm
     quarter_note = 60000//bpm
