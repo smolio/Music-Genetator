@@ -1,0 +1,5 @@
+-feature to input new 7-tone scale for a custom scale based on scale/interval degree?
+-incorporate enharmonics?
+
+-GUI PROGRAM SKIN
+ -user input selection options: key, quality, bpm
